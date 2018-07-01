@@ -26,13 +26,20 @@
             <li class="nav-item active">
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#">New features</a>
+            </li> -->
         </ul>
         <ul class="navbar-nav ml-auto">
             @if (Auth::check())
+                <!-- <li class="nav-item navbar-left">
+                </li> -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="/images/{{ Auth::user()->avatar }}" style="width:32px; height:32px; position:absolute; top:15px; left:-25px; border-radius:50%">{{ Auth::user()->name }}
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
                         <a class="dropdown-item" href="/logout">Log Out</a>
                     </div>
                 </li>

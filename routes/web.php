@@ -20,6 +20,10 @@ Route::get('/login', 'SessionsController@create');
 
 Route::post('/login', 'SessionsController@store');
 
+Route::get('profile', 'UserController@profile');
+
+Route::post('profile', 'UserController@update_avatar');
+
 Route::get('/logout', 'SessionsController@destroy');
 
 
