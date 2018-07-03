@@ -16,6 +16,12 @@ Route::get('/register', 'RegistrationController@create');
 
 Route::post('/register', 'RegistrationController@store');
 
+Route::get('/subscribersignup', 'SubscriberSignUpController@signup');
+
+Route::post('/savesubscribers', 'SubscriberSignUpController@subscribe');
+
+Route::post('/send', 'EmailController@send');
+
 Route::get('/login', 'SessionsController@create');
 
 Route::post('/login', 'SessionsController@store');
@@ -29,3 +35,9 @@ Route::get('/logout', 'SessionsController@destroy');
 
 
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+    Route::get('/compose', 'EmailController@compose');
+});

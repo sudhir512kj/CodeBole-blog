@@ -26,9 +26,21 @@
             <li class="nav-item active">
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="#">New features</a>
-            </li> -->
+            @if (Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link" href="/posts/create">New Post</a>
+                </li>
+            @endif
+            <li class="nav-item">
+                <a class="nav-link" href="/subscribersignup">Subscribe</a>
+            </li>
+            @if (Auth::check())
+                @if (Auth::user()->role_id === "1")
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/compose">Compose</a>
+                </li>
+                @endif
+            @endif
         </ul>
         <ul class="navbar-nav ml-auto">
             @if (Auth::check())
